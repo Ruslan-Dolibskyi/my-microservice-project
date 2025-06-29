@@ -67,3 +67,6 @@ terraform init -reconfigure
 Погодьтесь на перенесення локального стану до бекенду (yes).
 
 📦 Після цього Terraform зберігатиме terraform.tfstate у S3 і використовуватиме DynamoDB для блокування змін.
+
+при terraform destroy
+s3 baket потрібно видаляти в ручну на AWS сайті.
