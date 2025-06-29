@@ -9,7 +9,7 @@
 ---
 
 ## 📁 Структура проєкту
-
+```
 lesson-5/
 ├── main.tf
 ├── backend.tf
@@ -30,7 +30,7 @@ lesson-5/
 ├── ecr.tf
 ├── variables.tf
 └── outputs.tf
-
+```
 
 
 ---
