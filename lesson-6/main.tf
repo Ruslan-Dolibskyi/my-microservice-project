@@ -18,3 +18,13 @@ module "ecr" {
   ecr_name     = "lesson-5-ecr"
   scan_on_push = true
 }
+
+module "eks" {
+  source        = "./modules/eks"
+  cluster_name  = "lesson-7-eks"
+  subnet_ids    = concat(module.vpc.public_subnets, module.vpc.private_subnets)
+  instance_type = "t3.medium"
+  desired_size  = 2
+  max_size      = 4
+  min_size      = 1
+}
