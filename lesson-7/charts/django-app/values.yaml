@@ -23,6 +23,7 @@ config:
   POSTGRES_USER: django_user
   POSTGRES_DB: django_db
   POSTGRES_PASSWORD: "pass9764gd"
+  ALLOWED_HOSTS: "*"
 
 ingress:
   enabled: false

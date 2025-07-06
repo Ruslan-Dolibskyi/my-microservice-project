@@ -12,6 +12,8 @@ spec:
       labels:
         app: {{ .Release.Name }}-django
     spec:
+      imagePullSecrets:
+        - name: ecr-registry
       containers:
         - name: django
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
