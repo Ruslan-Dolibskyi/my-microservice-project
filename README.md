@@ -203,7 +203,40 @@ aws s3api delete-objects …
 aws s3api delete-bucket --bucket terraform-state-bucket-… 
 ```
 
+## 🔄 CI/CD Pipeline
+
+У цьому проєкті реалізовано CI/CD pipeline, який автоматизує процес розгортання: від коміту коду до оновлення додатку в Kubernetes.
+
+Основні етапи pipeline:
+
+- Commit → Jenkins build → ECR push → Helm chart update → Argo CD sync → Deployment
+
+```mermaid
+graph LR
+    A[Commit to Git] --> B[Jenkins Build]
+    B --> C[Push Docker Image to ECR]
+    C --> D[Update Helm Chart]
+    D --> E[Argo CD Sync]
+    E --> F[Deployment on EKS]
+```
+
+### Команди для тестування CI/CD
+
+- Запустити Jenkins job через Webhook або вручну.
+- Перевірити наявність образу в ECR.
+- Переглянути логи збірки Jenkins.
+- Перевірити статус Argo CD додатку:
+  ```bash
+  kubectl get applications.argoproj.io
+  ```
+- Примусово синхронізувати додаток через Argo CD CLI:
+  ```bash
+  argocd app sync django-app
+  ```
+
 # ✏️ Порада ⚠️:
 Щоб уникнути `“завислого”` бекенду при першому розгортанні, закоментуйте `backend.tf`, `зробіть terraform apply`, а потім розкоментуйте і запустіть `terraform init -reconfigure`.
+
+Після кожного пушу в Git workflow автоматично запускається повний CI/CD цикл.
 
 Успішного розгортання! 🚀

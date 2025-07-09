@@ -33,3 +33,4 @@ module "eks" {
   max_size      = 6
   min_size      = 2
 }
+

@@ -1,0 +1,16 @@
+{{- range .Values.repositories }}
+apiVersion: argoproj.io/v1alpha1
+kind: Repository
+metadata:
+  name: {{ .name }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  url: {{ .url | quote }}
+  {{- if .username }}
+  username: {{ .username | quote }}
+  password: {{ .password | quote }}
+  {{- end }}
+  insecure: {{ $.Values.repoConfig.insecure }}
+  enableLfs: {{ $.Values.repoConfig.enableLfs }}
+---
+{{- end }}
