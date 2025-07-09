@@ -1,11 +1,13 @@
-# Практичне завдання: Terraform + EKS + Helm (Lesson 7)
+# Lesson-8-9 
+## Ваша мета — реалізувати повний CI/CD-процес із використанням Jenkins + Helm + Terraform + Argo CD, який:
 
-У цьому завданні ми розгорнемо у AWS:
+1. Автоматично збирає Docker-образ для Django-застосунку;
 
-1. **ECR** для зберігання Docker-образу Django  
-2. **EKS (Elastic Kubernetes Service)** у нашій VPC  
-3. **Helm-чарт** з Deployment, Service, ConfigMap та HPA  
+2. Публікує образ в Amazon ECR;
 
+3. Оновлює Helm chart у репозиторії з правильним тегом;
+
+4. Синхронізує застосунок у кластері через Argo CD, який підхоплює зміни з Git.
 ---
 
 ## 📋 Передумови
