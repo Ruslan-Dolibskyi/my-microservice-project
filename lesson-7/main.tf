@@ -34,3 +34,13 @@ module "eks" {
   min_size      = 2
 }
 
+module "jenkins" {
+  source             = "./modules/jenkins"
+  cluster_name       = module.eks.eks_cluster_name
+  oidc_provider_arn  = module.eks.oidc_provider_arn
+  oidc_provider_url  = module.eks.oidc_provider_url
+
+  providers = {
+    helm = helm
+  }
+}
