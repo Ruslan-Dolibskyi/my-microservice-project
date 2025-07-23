@@ -1,0 +1,56 @@
+
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+crash.log
+
+# Terraform variable definitions
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform plan files
+*.tfplan
+
+# Terraform generated files
+.terraform/
+
+# Kubernetes config
+.kube/
+
+# VSCode
+.vscode/
+
+# JetBrains IDEs (IntelliJ, PhpStorm, etc.)
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Django
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+*.log
+.env
+
+# Docker
+docker-compose.override.yml
+**/Dockerfile*
+
+# Node.js
+node_modules/
+
+# Operating system files
+.DS_Store
+Thumbs.db

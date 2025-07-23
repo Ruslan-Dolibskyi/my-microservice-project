@@ -14,19 +14,19 @@ module "vpc" {
   public_subnets    = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   private_subnets   = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
   availability_zones= ["ap-southeast-1a","ap-southeast-1b","ap-southeast-1c"]
-  vpc_name          = "lesson-7-vpc"
-  cluster_name      = "lesson-7-eks"
+  vpc_name          = "final-project"
+  cluster_name      = "final-project"
 }
 
 module "ecr" {
   source       = "./modules/ecr"
-  ecr_name     = "lesson-7-ecr"
+  ecr_name     = "final-project-ecr"
   scan_on_push = true
 }
 
 module "eks" {
   source        = "./modules/eks"
-  cluster_name  = "lesson-7-eks"
+  cluster_name  = "final-project-eks"
   subnet_ids = module.vpc.public_subnets
   instance_type = "t3.medium"
   desired_size  = 2
